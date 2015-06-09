@@ -1,4 +1,5 @@
 package cs;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +7,7 @@ import bron.*;
 /**
  * @author Maciej Kulikiewicz
  */
-public class Gracz extends Postac{
+public class Gracz extends Postac implements Serializable{
 	
 	/**
 	 * @param kewlar
@@ -15,6 +16,7 @@ public class Gracz extends Postac{
 	private List<Bron> bronie = new ArrayList <Bron> () ;
 	protected int kewlar;
 	protected String Ranga;
+	protected String nazwa_postaci;
 	/**
 	 * konstruktor 4 parametrowy przkazujacy
 	 * @param nazwe
@@ -26,7 +28,7 @@ public class Gracz extends Postac{
 	{
 		super.zycie=zycie;
 		this.kewlar=kewlar;
-		super.nazwa_postaci=nazwa_postaci;
+		this.nazwa_postaci=nazwa_postaci;
 		this.Ranga=Ranga;
 	}
 	/**
@@ -35,6 +37,10 @@ public class Gracz extends Postac{
 	public Gracz()
 	{
 		this("Nieznana" , "Silver 1 " , 100 , 100);
+	}
+	public String toString()
+	{
+		return(" Gracz : " +nazwa_postaci + " O randze : " +Ranga+ " zostalo mu : " + kewlar);
 	}
 	public void dodaj_do_gracza_Bron(Bron b)
 	{
@@ -45,6 +51,7 @@ public class Gracz extends Postac{
 			else
 				throw new ExceptionMy();
 		}
+		
 		catch (Exception ExceptionMy)
 		{
 			System.out.println("Postaæ nie mo¿e mieæ wiêcej broni ni¿ :"+ bronie.size()+" ");

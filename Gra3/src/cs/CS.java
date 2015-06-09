@@ -4,14 +4,21 @@ package cs;
  */
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 import bron.Bron;
 import bron.Pistolety;
 import bron.Snajperska;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 
 public class CS {
-	private List<Gracz> CTlist = new ArrayList <Gracz> () ;
+	private static List<Gracz> CTlist = new ArrayList <Gracz> () ;
 	private List<Gracz> TTlist = new ArrayList <Gracz> () ;
 /**
  * Metoda dodaje CT do arraylisty
@@ -64,7 +71,7 @@ public class CS {
 		else
 		return TTlist.get(i);
 	}
-	public static void main(String[] args) throws ExceptionMy {
+	public static void main(String[] args) throws ExceptionMy, IOException, ClassNotFoundException{
 		
 		
 			CS cs = new CS();
@@ -90,7 +97,35 @@ public class CS {
 		bron = new Snajperska("AWP",10,50,10,100,30,40,100);
 		cs.getGracz(0, true).dodaj_do_gracza_Bron(bron);
 		
-		Bronie bron1= new Pistolety("beretta",20,10,30,30,30,10, false, "zielony");
+		Scanner znak=new Scanner(System.in);
+		System.out.println("zapis Graczy do xml");
+		System.out.println("1.Zapis");
+		System.out.println("2.Odczyt");
+		 ObjectOutputStream wy = new ObjectOutputStream(new FileOutputStream(".\\pracownik.dat"));
+		 ObjectInputStream we = new ObjectInputStream(new FileInputStream(".\\pracownik.dat"));
+		if (znak.nextInt() == 1)
+		{	
+			for(int i=0;i<CTlist.size() ; i++)
+			{
+				 wy.writeObject(CTlist.get(i));
+			}
+			wy.close();
+			System.out.println("Zapisano");
+		}
+		if (znak.nextInt() == 2)
+		{	
+	
+				Gracz p1 = (Gracz) we.readObject();
+				Gracz p2 = (Gracz) we.readObject();
+			System.out.println(p1 );
+			System.out.println(p2 );
+			System.out.println("Odczytuje" );
+		}
+	
+	
+		
+	
+		//Bronie bron1= new Pistolety("beretta",20,10,30,30,30,10, false, "zielony");
 	}
 
 }

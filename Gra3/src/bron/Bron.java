@@ -1,10 +1,13 @@
 package bron;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author Maciej Kulikiewcz
  *
  */
-public abstract class Bron implements BronI{
+public abstract class Bron implements BronI , Serializable{
 	public String nazwa;
 	public int dmg;
 	public int rozrzut;

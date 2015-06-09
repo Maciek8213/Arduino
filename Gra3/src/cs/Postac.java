@@ -1,4 +1,5 @@
 package cs;
+
 /**
  * 
  * @author Maciej Kulikiewicz
@@ -8,6 +9,10 @@ import java.util.*;
 public abstract class Postac {
 	
 	/**
+	 * 
+	 */
+	
+	/**
 	 * @param nazwa_postaci nazwa postaci
 	 * @param zycie
 	 * @param lewy przycisk myszy
@@ -15,6 +20,9 @@ public abstract class Postac {
 	private Scanner znak=new Scanner(System.in);
 	protected String nazwa_postaci;
 	protected int zycie;
+	
+	
+	
 	boolean lewy_przycisk_myszy;
 	/**
 	 * Metoda odpowiedzialna za strzelanie
@@ -87,4 +95,5 @@ public abstract class Postac {
 			magazynek--;
 		  }
 	}
+
 }

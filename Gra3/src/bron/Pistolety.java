@@ -1,11 +1,14 @@
 package bron;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author Maciej Kulikiewicz
  *
  */
 
-public class Pistolety extends Bron {
+public class Pistolety extends Bron implements Serializable {
 	/**
 	 * @param tlumik
 	 * @param szybkoscruchu

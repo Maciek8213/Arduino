@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DododmDriver;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class ParserXML {
 	/**
@@ -19,7 +19,7 @@ public class ParserXML {
 	 *            obiekt klasy Processor
 	 * @return odwzorowanie obiektu w postaci danych xml
 	 */
-	public static String processor2Xml(Processor p) {
+	public static String processor2Xml(Gracz p) {
 		XStream mapping = new XStream(new DomDriver());
 		String xml = mapping.toXML(p);
 		return xml;
@@ -32,7 +32,7 @@ public class ParserXML {
 	 *            dane obiektu
 	 * @return obiekt klasy Processor
 	 */
-	public static Processor xml2Processor(String xml) {
+	public static Gracz xml2Processor(String xml) {
 		XStream mapping = new XStream(new DomDriver());
 		return (Gracz) mapping.fromXML(xml);
 	}
@@ -46,7 +46,7 @@ public class ParserXML {
 	 * @param filename
 	 *            nazwa pliku do zapisu obiektów
 	 */
-	public static void arrayListProcessor2Xml(ArrayList<Processor> p,
+	public static void arrayListProcessor2Xml(ArrayList<Gracz> p,
 			String filename) {
 		if (filename != null) {
 			try {
@@ -94,5 +94,5 @@ public class ParserXML {
 		return null;
 	}
 
-
+	
 }
