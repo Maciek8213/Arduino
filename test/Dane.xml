@@ -1,0 +1,17 @@
+<list>
+  <Pracownik>
+    <imie>Maciek</imie>
+    <nazwisko>andrzej</nazwisko>
+    <email>kul@wp.pl</email>
+  </Pracownik>
+  <Pracownik>
+    <imie>jasnek</imie>
+    <nazwisko>wsujel</nazwisko>
+    <email> 2as</email>
+  </Pracownik>
+  <Pracownik>
+    <imie>Maciek</imie>
+    <nazwisko>andrzej</nazwisko>
+    <email>kul@wp.pl</email>
+  </Pracownik>
+</list>
