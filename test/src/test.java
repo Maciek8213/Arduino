@@ -1,25 +1,26 @@
 
 import java.io.FileOutputStream;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class test implements Serializable {
 
-public static void main(String[] args ) throws FileNotFoundException, IOException {
+public static void main(String[] args ) throws IOException, ClassNotFoundException 
+{
 	
 	Pracownik maciek=new Pracownik("Maciek","andrzej","kul@wp.pl" );
 	
-	ObjectOutputStream ja=new ObjectOutputStream(new FileOutputStream(".\\pracownik.dat"));
+	ObjectOutputStream wy = new ObjectOutputStream(new FileOutputStream(".\\pracownik.dat"));
 	
-	ja.writeObject(maciek);
-	ja.close();
+	wy.writeObject(maciek);
+	wy.close();
    
 	
-	ObjectOutputStream we=new ObjectOutputStream(new FileInputStream(".\\pracownik.dat"));
+	ObjectInputStream we = new ObjectInputStream(new FileInputStream(".\\pracownik.dat"));
     Pracownik p1 = (Pracownik)we.readObject();
     we.close();
  
