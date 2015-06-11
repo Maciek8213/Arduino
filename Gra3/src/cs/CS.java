@@ -19,7 +19,7 @@ import java.io.ObjectOutputStream;
 
 public class CS {
 	private static List<Gracz> CTlist = new ArrayList <Gracz> () ;
-	private List<Gracz> TTlist = new ArrayList <Gracz> () ;
+	private static List<Gracz> TTlist = new ArrayList <Gracz> () ;
 /**
  * Metoda dodaje CT do arraylisty
  * @param g przekazuje gracza
@@ -101,24 +101,31 @@ public class CS {
 		System.out.println("zapis Graczy do xml");
 		System.out.println("1.Zapis");
 		System.out.println("2.Odczyt");
-		 ObjectOutputStream wy = new ObjectOutputStream(new FileOutputStream(".\\pracownik.dat"));
+		 ObjectOutputStream wy = new ObjectOutputStream(new FileOutputStream(".\\Zawodnicy.dat"));
 		 ObjectInputStream we = new ObjectInputStream(new FileInputStream(".\\pracownik.dat"));
 		if (znak.nextInt() == 1)
-		{	
-			for(int i=0;i<CTlist.size() ; i++)
+		{	int p=0;
+			for( p=0;p<CTlist.size() ; p++)
 			{
-				 wy.writeObject(CTlist.get(i));
+				 wy.writeObject(CTlist.get(p));
+			
+			}
+			for(int i=0;i<TTlist.size() ; i++  )
+			{	p++;
+				 wy.writeObject(TTlist.get(p));
 			}
 			wy.close();
 			System.out.println("Zapisano");
 		}
 		if (znak.nextInt() == 2)
 		{	
-	
-				Gracz p1 = (Gracz) we.readObject();
-				Gracz p2 = (Gracz) we.readObject();
+			for(int i= 0 ; i<=CTlist.size()+TTlist.size(); i++)
+			{
+			Gracz p1 = (Gracz) we.readObject();
 			System.out.println(p1 );
-			System.out.println(p2 );
+			}
+			
+			System.out.println();
 			System.out.println("Odczytuje" );
 		}
 	
